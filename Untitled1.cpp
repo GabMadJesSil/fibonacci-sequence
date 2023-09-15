@@ -3,33 +3,43 @@
 #include<math.h>
 #include<float.h>
 
-void somatorio(int final);
+int somatorio(int final,int cont);
 
 int main( ){
-	int max,soma=0;
+	int max;
+	int cont=0;
+	
+	while(true){
 	
 	printf("digite a quantidade maxima: ");
 	scanf("%d",&max);
 	
-	somatorio(max);
+	somatorio(max,cont);
+	}
 	
 	return 0;
 }
 
-void somatorio(int final){
+int somatorio(int final,int cont){
 	int ant=0 , atual=1 ,depois ;
-	int cont=0;
-	do{		
-		cont++;
-		printf("%d \n",atual);
 		
+		cont++;
+		
+		printf("%d \n",atual);
 		depois = ant+atual;
+		
 		ant=atual;
+		
 		atual=depois;
+
+	if(cont<final){
+		
+		somatorio(final,cont);
 	
-	}while(cont<final);
-	
-	
+	}else{
+		
+		return 0;
+	}	
 }
 
 
