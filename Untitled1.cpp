@@ -1,45 +1,35 @@
 #include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
-#include<float.h>
 
-int somatorio(int final,int cont);
+void somatorio(int max, int cont, int ant, int atual, int depois);
 
-int main( ){
-	int max;
-	int cont=0;
-	
-	while(true){
-	
-	printf("digite a quantidade maxima: ");
-	scanf("%d",&max);
-	
-	somatorio(max,cont);
-	}
-	
-	return 0;
+int main() {
+    int max,cont = 0,ant = 0, atual = 1, depois = 0;
+
+    while (1) {
+        printf("Digite a quantidade máxima: ");
+        scanf("%d", &max);
+
+        somatorio(max, cont, ant, atual, depois);
+    }
+
+    return 0;
 }
 
-int somatorio(int final,int cont){
-	int ant=0 , atual=1 ,depois ;
-		
-		cont++;
-		
-		printf("%d \n",atual);
-		depois = ant+atual;
-		
-		ant=atual;
-		
-		atual=depois;
-
-	if(cont<final){
-		
-		somatorio(final,cont);
+void somatorio(int max, int cont, int ant, int atual, int depois) {
 	
-	}else{
-		
-		return 0;
-	}	
+    printf("%d\n", atual);
+
+    depois = ant + atual;
+
+    ant = atual;
+
+    atual = depois;
+
+    cont++;
+
+    if (cont < max) {
+        somatorio(max, cont, ant, atual, depois);
+    }
 }
 
 
